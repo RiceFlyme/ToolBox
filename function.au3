@@ -13,7 +13,7 @@ Global Const $AW_ACTIVATE = 0x00020000
 Global Const $AW_SLIDE = 0x00040000
 Global Const $AW_BLEND = 0x00080000
 Global $ToolTitle = '软件工具箱 By 稻花香', $dllfile[5]
-Global $ver1 = '1.10.0.', $ver2 = 23, $ver3 = '2023.10.2' ;版本信息
+Global $ver1 = '1.10.0.', $ver2 = 24, $ver3 = '2023.10.23' ;版本信息
 Global $curl = @ComSpec & ' /c ' & @ScriptDir & '\dhxtool\tools\curl\curl.exe'
 Global $aria2 = @ScriptDir & '\dhxtool\tools\aria2c.exe'
 Global $1html = @ScriptDir & '\dhxtool\tools\curl\1.html'
@@ -22,20 +22,15 @@ Global $3html = @ScriptDir & '\dhxtool\tools\curl\3.html'
 Global $LeftICO[15], $LeftBTN[15]
 Global $LeftICOName[15] = ['', 'ruanjian', 'zhedie', 'QQ', 'VX', 'Edge', 'Explorer', 'Taskmgr', 'WinTools', 'regedit', 'Word', 'Excel', 'PPT', 'sousuo', 'shezhi']
 Global $LeftICOBKCLR[15] = ['', '0x502050', '0x501F56', '0x6E4A72', '0x6C4A71', '0x6A4A70', '0x674A73', '0x644A70', '0x5E4C6F', '0x5A4D71', '0x534E71', '0x4E4E72', '0x4B4F6F', '0x1C2858', '0x1A2A4E']
-Global $rjml[13] = ['\ToolBox\Software\Home\', _
-		'\ToolBox\Software\Office\', _
-		'\ToolBox\Software\weihu\', _
-		'', _
-		'\ToolBox\Software\Youhua\', _
-		'\ToolBox\Software\Active\', _
-		'\ToolBox\Software\Suit\', _
-		'\ToolBox\Software\Test\', _
-		'\ToolBox\Software\USBboot\', _
-		'\ToolBox\Software\Network\', _
-		'\ToolBox\Software\SYSApp\', _
-		'\ToolBox\Software\VideoMix\', _
-		'\ToolBox\Software\Game\']
-Global $sfenlei[] = ['在线安装', '文字办公', '平面设计', '程序编程', '电脑维护', '系统优化', '激活破解', '光盘光驱', 'Adobe', '网页网站', '其它套装', '硬件测试', '数据管理', '图片工具', '优盘启动', '网络工具', '系统工具', '音乐工具', '视频工具', '游戏娱乐', '系统驱动']
+Global $OSfx = RegRead('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'DisplayVersion')
+Global $OShz = RegRead('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'UBR')
+Global $LBNAry = IniReadSection(@ScriptDir & '\config\config\form.ini', '软件分类')
+Global $sFLNum = UBound($LBNAry, 1)
+Global $sfenlei[$sFLNum], $rjml[$sFLNum]
+For $i = 1 To $sFLNum - 1
+	$sfenlei[$i] = $LBNAry[$i][1]
+	$rjml[$i] = '\ToolBox\Software\' & $sfenlei[$i] & '\'
+Next
 Global $setting[] = ['关于本工具箱', '窗口参数设置', '工具箱参数设置', '软件参数设置']
 Global $findstr[] = ['软件搜索', '常用软件', '软件收藏']
 Global $flcolor[] = ['0xA042A3', '0xA042A3', '0xA042A3', '0x9E43A3', '0x9E42A5', '0x9C42A4', '0x9A42A6', '0x9644A6', '0x9145A7', '0x8D47AA', '0x8746AA', '0x7F49AB', '0x754BAF', '0x6E4BAF', '0x644EB3', '0x5E50B2', '0x5751B3', '0x5351B4', '0x4C52B2', '0x4A52B4', '0x4A52B4']
@@ -383,6 +378,7 @@ Func _Pan($Dir = "\ToolBox\Software\Adobeall-\", $LimitFree = 8)
 						$pan = StringLeft($pan, 2)
 						GUIDelete($Form_pan)
 						Return $pan
+						MsgBox(0, 0, $pan)
 						ExitLoop
 					EndIf
 					If GUIGetMsg() = -3 Then

@@ -1,90 +1,64 @@
 #NoTrayIcon
 #RequireAdmin
-#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
-#AutoIt3Wrapper_Icon=..\..\Downloads\Pictures\Camera Roll\Ò»Åú³¬Æ¯ÁÁÍ¼±ê\Í¼±ê\Audiotool.ico
-#AutoIt3Wrapper_Outfile=µ¾»¨Ïã¹¤¾ßÏä_v1.10.0.22.exe
+#Region ;**** ç¼–è¯‘æŒ‡ä»¤ç”± by AutoIt3Wrapper_GUI åˆ›å»º ****
+#AutoIt3Wrapper_Icon=..\..\Downloads\Pictures\Camera Roll\ä¸€æ‰¹è¶…æ¼‚äº®å›¾æ ‡\å›¾æ ‡\Audiotool.ico
+#AutoIt3Wrapper_Outfile=ç¨»èŠ±é¦™å·¥å…·ç®±_v1.10.0.24.exe
 #AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_UseUpx=y
 #AutoIt3Wrapper_UseX64=n
-#AutoIt3Wrapper_Res_Comment=µ¾»¨Ïã¹¤¾ßÏä
-#AutoIt3Wrapper_Res_Description=µ¾»¨Ïã¹¤¾ßÏä
-#AutoIt3Wrapper_Res_Fileversion=1.10.0.23
-#AutoIt3Wrapper_Res_ProductName=µ¾»¨Ïã¹¤¾ßÏä_v1.10.0.23
-#AutoIt3Wrapper_Res_ProductVersion=1.10.0.23
-#AutoIt3Wrapper_Res_CompanyName=µ¾»¨Ïã¶¨ÖÆ³öÆ·
+#AutoIt3Wrapper_Res_Comment=ç¨»èŠ±é¦™å·¥å…·ç®±
+#AutoIt3Wrapper_Res_Description=ç¨»èŠ±é¦™å·¥å…·ç®±
+#AutoIt3Wrapper_Res_Fileversion=1.10.0.24
+#AutoIt3Wrapper_Res_ProductName=ç¨»èŠ±é¦™å·¥å…·ç®±_v1.10.0.24
+#AutoIt3Wrapper_Res_ProductVersion=1.10.0.24
+#AutoIt3Wrapper_Res_CompanyName=ç¨»èŠ±é¦™å®šåˆ¶å‡ºå“
 #AutoIt3Wrapper_Res_LegalCopyright=Copyright? 2021-2023 RiceFlyme All rights reserved
 #AutoIt3Wrapper_Res_LegalTradeMarks=RiceFlyme
 #AutoIt3Wrapper_Res_Language=2052
-#AutoIt3Wrapper_Res_Field=InternalName|µ¾»¨Ïã¹¤¾ßÏä_v1.10.0.23
-#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
-#Majia_Mode=0|
-#include <function.au3>
+#AutoIt3Wrapper_Res_Field=InternalName|ç¨»èŠ±é¦™å·¥å…·ç®±_v1.10.0.24
+#EndRegion ;**** ç¼–è¯‘æŒ‡ä»¤ç”± by AutoIt3Wrapper_GUI åˆ›å»º ****
+#Region ;**** ç¼–è¯‘æŒ‡ä»¤ç”± by AutoIt3Wrapper_GUI åˆ›å»º ****
+#EndRegion ;**** ç¼–è¯‘æŒ‡ä»¤ç”± by AutoIt3Wrapper_GUI åˆ›å»º ****
 #include <WindowsConstants.au3>
 #include <GUIConstantsEx.au3>
 #include <array.au3>
 #include <GuiStatusBar.au3>
 #include <Date.au3>
-If UBound(ProcessList(@ScriptName)) > 2 Then ;½ûÖ¹ÖØ¸´ÔËĞĞ
-	MsgBox(48, '¾¯¸æ', 'Çë²»ÒªÖØ¸´ÔËĞĞ')
+#include 'function.au3'
+#include 'DirInstall_udf.au3'
+If UBound(ProcessList(@ScriptName)) > 2 Then ;ç¦æ­¢é‡å¤è¿è¡Œ
+	MsgBox(48, 'è­¦å‘Š', 'è¯·ä¸è¦é‡å¤è¿è¡Œ')
 	Exit
 EndIf
 
-FileChangeDir(@ScriptDir) ;ÇĞµ½½Å±¾Ä¿Â¼£¬·ÀÖ¹±»µ÷ÓÃÊ±µÄ±¨´í
-DirCreate('dhxtool\config\')
-DirCreate('dhxtool\skin\')
-DirCreate('dhxtool\tools\curl\')
-DirCreate('dhxtool\icon\Form\')
-FileInstall('config\config\form.ini', 'dhxtool\config\')
-FileInstall('config\skin\»¶Ó­±³¾°.jpg', 'dhxtool\skin\')
-FileInstall('config\skin\ÌáÊ¾±³¾°.jpg', 'dhxtool\skin\')
-FileInstall('config\skin\Ö÷´°¿Ú±³¾°.jpg', 'dhxtool\skin\')
-FileInstall('config\skin\Ë®ÎÆ.bmp', 'dhxtool\skin\')
-FileInstall('config\tools\water.dll', 'dhxtool\skin\')
-FileInstall('config\icon\Form\ruanjian.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\shezhi.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\sousuo.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\zhankai.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\zhedie.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\Edge.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\EXCEL.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\Explorer.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\PPT.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\QQ.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\regedit.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\Taskmgr.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\VX.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\WinTools.ico', 'dhxtool\icon\Form\')
-FileInstall('config\icon\Form\Word.ico', 'dhxtool\icon\Form\')
-FileInstall("config\tools\curl\curl.exe", 'dhxtool\tools\curl\')
-FileInstall("config\tools\curl\curl-ca-bundle.crt", 'dhxtool\tools\curl\')
-FileInstall("config\tools\curl\libcurl.def", 'dhxtool\tools\curl\')
-FileInstall("config\tools\curl\libcurl.dll", 'dhxtool\tools\curl\')
-FileInstall("config\tools\aria2c.exe", 'dhxtool\tools\')
-FileInstall("config\tools\ChkMbrPbr_x64.exe", 'dhxtool\tools\')
-FileInstall("config\tools\ChkMbrPbr_x86.exe", 'dhxtool\tools\')
-Global $rjPan = _Pan() ;»ñÈ¡¹¤¾ßÏäÅÌ·û£¬´´½¨²¢ÊÍ·ÅÅäÖÃÎÄ¼ş
+FileChangeDir(@ScriptDir) ;åˆ‡åˆ°è„šæœ¬ç›®å½•ï¼Œé˜²æ­¢è¢«è°ƒç”¨æ—¶çš„æŠ¥é”™
+_DirInstall(@ScriptDir&'\config\config', @ScriptDir&'\dhxtool|1',0)
+_DirInstall(@ScriptDir&'\config\icon', @ScriptDir&'\dhxtool|1',0)
+_DirInstall(@ScriptDir&'\config\skin', @ScriptDir&'\dhxtool|1',0)
+_DirInstall(@ScriptDir&'\config\tools', @ScriptDir&'\dhxtool|1',0)
+Global $rjPan = _Pan() ;è·å–å·¥å…·ç®±ç›˜ç¬¦ï¼Œåˆ›å»ºå¹¶é‡Šæ”¾é…ç½®æ–‡ä»¶
 
-If IniRead('dhxtool\config\form.ini', 'ĞŞ¶©°æ±¾', 'Ver', '') <> $ver2 Then
+If IniRead('dhxtool\config\form.ini', 'ä¿®è®¢ç‰ˆæœ¬', 'Ver', '') <> $ver2 Then
 	DirRemove('dhxtool', 1)
 	_ScriptRestart()
 EndIf
 
-Global $Form_WLCM = GUICreate('', 760, 320, -1, -1, $WS_POPUP, $WS_EX_LAYERED) ;»¶Ó­´°¿Ú
-GUICtrlCreatePic('dhxtool\skin\»¶Ó­±³¾°.jpg', 0, 0, 760, 320)
+Global $Form_WLCM = GUICreate('', 760, 320, -1, -1, $WS_POPUP, $WS_EX_LAYERED) ;æ¬¢è¿çª—å£
+GUICtrlCreatePic('dhxtool\skin\æ¬¢è¿èƒŒæ™¯.jpg', 0, 0, 760, 320)
 GUICtrlSetState(-1, $GUI_DISABLE)
-Global $TipData = GUICtrlCreateLabel('Èí¼ş¹¤¾ßÏäÕıÔÚÆô¶¯£¬ÇëÉÔµÈ...', 180, 210, 355, 25)
-GUICtrlSetFont(-1, 15, 700, 2, '»ªÎÄ²ÊÔÆ')
+Global $TipData = GUICtrlCreateLabel('è½¯ä»¶å·¥å…·ç®±æ­£åœ¨å¯åŠ¨ï¼Œè¯·ç¨ç­‰...', 180, 210, 355, 25)
+GUICtrlSetFont(-1, 15, 700, 2, 'åæ–‡å½©äº‘')
 GUICtrlSetColor(-1, 0x0000FF)
 GUICtrlSetBkColor(-1, 0x025CBC)
 GUISetState(@SW_SHOW, $Form_WLCM)
 
-Global $Form = GUICreate($ToolTitle, 1060, 650, -1, -1) ;Ö÷´°¿Ú
+Global $Form = GUICreate($ToolTitle, 1060, 650, -1, -1) ;ä¸»çª—å£
 GUICtrlCreatePic("", 0, 0, 1060, 650, -1, 1048576)
-GUICtrlSetImage(-1, @ScriptDir & "\dhxtool\skin\Ö÷´°¿Ú±³¾°.jpg")
-GUICtrlSetState(-1, $GUI_DISABLE) ;½ûÖ¹ÔÚ´°¿ÚÄÚÍÏ¶¯
-_WaterCtrl_Startup(@ScriptDir & "\dhxtool\skin\Ë®ÎÆ.bmp", $Form, Random(0, 800) & "," & Random(0, 100), Random(3, 8), 50, 260, 0)
+GUICtrlSetImage(-1, @ScriptDir & "\dhxtool\skin\ä¸»çª—å£èƒŒæ™¯.jpg")
+GUICtrlSetState(-1, $GUI_DISABLE) ;ç¦æ­¢åœ¨çª—å£å†…æ‹–åŠ¨
+_WaterCtrl_Startup(@ScriptDir & "\dhxtool\skin\æ°´çº¹.bmp", $Form, Random(0, 800) & "," & Random(0, 100), Random(3, 8), 50, 260, 0);æ°´çº¹å›¾ç‰‡
 
-$LeftICO[0] = GUICreate("", 37, 37, 12, 90, $WS_POPUP, $WS_EX_MDICHILD, $Form)
+$LeftICO[0] = GUICreate("", 37, 37, 12, 90, $WS_POPUP, $WS_EX_MDICHILD, $Form);å·¦ä¾§æ§åˆ¶æŒ‰é’®
 $LeftBTN[0] = GUICtrlCreateIcon(@ScriptDir & '\dhxtool\icon\Form\zhankai.ico', 0, -1, -1, 37, 37)
 GUISetBkColor('0x501F56')
 GUISwitch($Form)
@@ -98,33 +72,50 @@ For $i = 1 To 14
 	GUISwitch($Form)
 Next
 
-Global $ahIcons, $vPartEdge[6] = [100, 475, 600, 742, 950, 1060] ;´´½¨×´Ì¬À¸
+Global $ahIcons, $vPartEdge[6] = [100, 475, 600, 742, 950, 1060] ;åˆ›å»ºçŠ¶æ€æ 
 Global $hStatus = _GUICtrlStatusBar_Create($Form, -1, "", $SBARS_TOOLTIPS)
 _GUICtrlStatusBar_SetParts($hStatus, $vPartEdge)
-_NetStatus($1html, $curl, $hStatus) ;ÍøÂç×´Ì¬
+_NetStatus($1html, $curl, $hStatus) ;ç½‘ç»œçŠ¶æ€
 If @OSBuild > 10000 Then
-	_GUICtrlStatusBar_SetText($hStatus, 'ÏµÍ³ĞÅÏ¢: ' & OSinfo() & ' ' & @OSArch & ' ' & RegRead('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'DisplayVersion') & '-' & @OSBuild & '.' & RegRead('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'UBR'), 1)
+	_GUICtrlStatusBar_SetText($hStatus, 'ç³»ç»Ÿä¿¡æ¯: ' & OSinfo() & ' ' & @OSArch & ' ' & $OSfx & '-' & @OSBuild & '.' & $OShz, 1)
 Else
 	Local $bbh = StringSplit(FileGetVersion(@WindowsDir & '\explorer.exe', 'FileVersion'), '.(')
-	_GUICtrlStatusBar_SetText($hStatus, 'ÏµÍ³ĞÅÏ¢: ' & OSinfo() & ' ' & @OSArch & ' ' & $bbh[3] & '.' & $bbh[4], 1)
+	_GUICtrlStatusBar_SetText($hStatus, 'ç³»ç»Ÿä¿¡æ¯: ' & OSinfo() & ' ' & @OSArch & ' ' & $bbh[3] & '.' & $bbh[4], 1)
 EndIf
-_GUICtrlStatusBar_SetText($hStatus, 'ÏµÍ³»·¾³: ' & OSHuanJing($2html, $curl), 2)
-_GUICtrlStatusBar_SetText($hStatus, 'Òıµ¼Ä£Ê½:' & IsGPT() & ' + ' & _IsUEFIBoot(), 3)
-AdlibRegister("_time", 1000) ;µ±Ç°ÏµÍ³Ê±¼ä
-_GUICtrlStatusBar_SetText($hStatus, '°æ±¾ºÅ£º' & $ver1 & $ver2, 5)
+_GUICtrlStatusBar_SetText($hStatus, 'ç³»ç»Ÿç¯å¢ƒ: ' & OSHuanJing($2html, $curl), 2)
+_GUICtrlStatusBar_SetText($hStatus, 'å¼•å¯¼æ¨¡å¼:' & IsGPT() & ' + ' & _IsUEFIBoot(), 3)
+AdlibRegister("_time", 1000) ;å½“å‰ç³»ç»Ÿæ—¶é—´
+_GUICtrlStatusBar_SetText($hStatus, 'ç‰ˆæœ¬å·ï¼š' & $ver1 & $ver2, 5)
 
 For $i = 0 To 20
-	$BTN_stfenlei[$i] = GUICtrlCreateButton($sfenlei[$i], 60, $i * 30, 200, 29)
+	$BTN_stfenlei[$i] = GUICtrlCreateButton($sfenlei[$i+1], 60, $i * 30, 200, 29);è½¯ä»¶åˆ†ç±»æŒ‰é’®
 	GUICtrlSetColor(-1, '0xFFFFFF')
 	GUICtrlSetBkColor(-1, $flcolor[$i])
-	$Form_sft[$i] = GUICreate("", 800, 530, 260, 100, $WS_POPUP, $WS_EX_MDICHILD, $Form)
+	$Form_sft[$i] = GUICreate("", 800, 530, 260, 100, $WS_POPUP, $WS_EX_MDICHILD, $Form);è½¯ä»¶åŒºåŸŸçš„å­çª—å£
 	GUISetBkColor($stcolor[$i])
-	GUICtrlCreateLabel($sfenlei[$i], 295, 250, 210, 30)
-	GUICtrlSetFont(-1, 22, 700, 2)
 	GUISwitch($Form)
 Next
+
+GUISwitch($Form_sft[0]);åœ¨çº¿å®‰è£…å­çª—å£å†…å®¹
+GUICtrlCreateIcon(@ScriptDir&'\dhxtool\icon\åœ¨çº¿å®‰è£…\LKY_OfficeTools.ico',-1,2,2,40,40)
+GUICtrlCreateLabel('LKY_OfficeTools',48,10,180,25)
+
+GUICtrlSetFont(-1,18,600)
+GUICtrlCreateLabel('12.0MB',260,12,80,20)
+GUICtrlSetFont(-1,17,600)
+GUICtrlCreateLabel('v1.1.2.401',360,12,120,20)
+GUICtrlSetFont(-1,17,600)
+GUICtrlCreateLabel('å•æ–‡ä»¶',500,12,80,20)
+GUICtrlSetFont(-1,17,600)
+GUICtrlCreateButton('è·å–è½¯ä»¶',680,9,100,30)
+GUICtrlSetFont(-1,12,600)
+GUICtrlCreateLabel('ä¸€é”®å¿«é€Ÿä¸‹è½½ã€å®‰è£…ã€æ¿€æ´»æœ€æ–°ç‰ˆ Microsoft Office è½¯ä»¶ã€‚å¯åœ¨å®‰è£… Wordã€PPTã€Excel çš„åŒæ—¶ï¼Œæ ¹æ®è½¯ä»¶æç¤ºï¼Œè‡ªåŠ©å®‰è£…å…¶å®ƒç»„ä»¶ï¼Œå¯ä»¥è‡ªåŠ¨è¯†åˆ«ä¸åŒçš„æ“ä½œç³»ç»Ÿæ¶æ„ï¼Œè‡ªåŠ¨ä¸‹è½½é€‚é…ç‰ˆæœ¬çš„ Officeã€‚æ¿€æ´» Office çš„æ–¹å¼ä¸ºæ­£ç‰ˆæ¿€æ´»æ¨¡å¼ï¼Œä¸ä¼šç¯¡æ”¹ä»»ä½•ç³»ç»Ÿæ–‡ä»¶ã€‚å½“ç³»ç»Ÿä¸­å­˜åœ¨å¤šä¸ªå†—ä½™ Office ç‰ˆæœ¬æ—¶ï¼Œæœ¬å·¥å…·åœ¨ç”¨æˆ·åŒæ„çš„æƒ…å†µä¸‹ï¼Œå¯å®ç°è‡ªåŠ¨å‡çº§ã€‚',5,45,790,50)
+GUICtrlSetBkColor(-1,0x9C42A4)
+GUICtrlSetFont(-1,11)
+GUISwitch($Form)
+
 For $i = 0 To 2
-	$BTN_findstr[$i] = GUICtrlCreateButton($findstr[$i], 60, $i * 30, 200, 29)
+	$BTN_findstr[$i] = GUICtrlCreateButton($findstr[$i], 60, $i * 30, 200, 29);æœç´¢åˆ†ç±»æŒ‰é’®
 	GUICtrlSetColor(-1, '0xFFFFFF')
 	GUICtrlSetBkColor(-1, $flcolor[$i])
 	GUICtrlSetState(-1, $GUI_HIDE)
@@ -135,7 +126,7 @@ For $i = 0 To 2
 	GUISwitch($Form)
 Next
 For $i = 0 To 3
-	$BTN_setting[$i] = GUICtrlCreateButton($setting[$i], 60, $i * 30, 200, 29)
+	$BTN_setting[$i] = GUICtrlCreateButton($setting[$i], 60, $i * 30, 200, 29);è®¾ç½®åˆ†ç±»æŒ‰é’®
 	GUICtrlSetColor(-1, '0xFFFFFF')
 	GUICtrlSetBkColor(-1, $flcolor[$i])
 	GUICtrlSetState(-1, $GUI_HIDE)
@@ -145,32 +136,33 @@ For $i = 0 To 3
 	GUICtrlSetFont(-1, 22, 700, 2)
 	GUISwitch($Form)
 Next
-Global $about[9]
-$about[1] = GUICtrlCreateLabel('                   ¹ØÓÚ', 265, 105, 790, 30)
+
+Global $about[9];å…³äºç•Œé¢
+$about[1] = GUICtrlCreateLabel('                   å…³äº', 265, 105, 790, 30)
 GUICtrlSetFont(-1, 20, 700, 2)
 GUICtrlSetState(-1, $GUI_HIDE)
-$about[2] = GUICtrlCreateLabel('´¦ÀíÆ÷£º' & RegRead('HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\CentralProcessor\0', 'ProcessorNameString'), 265, 140, 790, 30)
+$about[2] = GUICtrlCreateLabel('å¤„ç†å™¨ï¼š' & RegRead('HKEY_LOCAL_MACHINE\HARDWARE\DESCRIPTION\System\CentralProcessor\0', 'ProcessorNameString'), 265, 140, 790, 30)
 GUICtrlSetFont(-1, 20, 700, 2)
 GUICtrlSetState(-1, $GUI_HIDE)
-$about[3] = GUICtrlCreateLabel('ÏµÍ³OS£º' & StringReplace(_GUICtrlStatusBar_GetText($hStatus, 1), 'ÏµÍ³ĞÅÏ¢: ', ''), 265, 175, 790, 30)
+$about[3] = GUICtrlCreateLabel('ç³»ç»ŸOSï¼š' & StringReplace(_GUICtrlStatusBar_GetText($hStatus, 1), 'ç³»ç»Ÿä¿¡æ¯: ', ''), 265, 175, 790, 30)
 GUICtrlSetFont(-1, 20, 700, 2)
 GUICtrlSetState(-1, $GUI_HIDE)
 Local $sx = StringSplit(RegRead('HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\disk\Enum', '0'), '&\')
-$about[4] = GUICtrlCreateLabel('Ö÷Ó²ÅÌ£º' & StringTrimLeft($sx[4], 5), 265, 210, 790, 30)
+$about[4] = GUICtrlCreateLabel('ä¸»ç¡¬ç›˜ï¼š' & StringTrimLeft($sx[4], 5), 265, 210, 790, 30)
 GUICtrlSetFont(-1, 22, 700, 2)
 GUICtrlSetState(-1, $GUI_HIDE)
-$about[5] = GUICtrlCreateLabel('Èí¼şÅÌ£º' & Round(DriveSpaceFree($rjPan) / 1024, 2) & 'GB/' & Round(DriveSpaceTotal($rjPan) / 1024, 2) & 'GB', 265, 245, 790, 30)
+$about[5] = GUICtrlCreateLabel('è½¯ä»¶ç›˜ï¼š' & Round(DriveSpaceFree($rjPan) / 1024, 2) & 'GB/' & Round(DriveSpaceTotal($rjPan) / 1024, 2) & 'GB', 265, 245, 790, 30)
 GUICtrlSetFont(-1, 22, 700, 2)
 GUICtrlSetState(-1, $GUI_HIDE)
-$about[6] = GUICtrlCreateLabel('°æ±¾ºÅ£º' & $ver1 & $ver2 & ' / ' & $ver3 & ' / Byµ¾»¨Ïã', 265, 280, 790, 30)
+$about[6] = GUICtrlCreateLabel('ç‰ˆæœ¬å·ï¼š' & $ver1 & $ver2 & ' / ' & $ver3 & ' / Byç¨»èŠ±é¦™', 265, 280, 790, 30)
 GUICtrlSetFont(-1, 22, 700, 2)
 GUICtrlSetState(-1, $GUI_HIDE)
 If FileReadLine($2html) <> '' Then
-	$about[7] = GUICtrlCreateLabel('VHDÄ¿Â¼£º' & FileReadLine($2html), 265, 315, 790, 30)
+	$about[7] = GUICtrlCreateLabel('VHDç›®å½•ï¼š' & FileReadLine($2html), 265, 315, 790, 30)
 	GUICtrlSetFont(-1, 22, 700, 2)
 	GUICtrlSetState(-1, $GUI_HIDE)
 EndIf
-$about[8] = GUICtrlCreateButton('¼ì²é¸üĞÂ', 920, 590, 120, 30)
+$about[8] = GUICtrlCreateButton('æ£€æŸ¥æ›´æ–°', 920, 590, 120, 30)
 GUICtrlSetState(-1, $GUI_HIDE)
 GUIDelete($Form_WLCM)
 FadeOut($Form, 1000)
@@ -213,7 +205,7 @@ While 1
 	Next
 	Switch $msg
 		Case -3
-			Local $ExitBox = MsgBox(32 + 1 + 256 + 262144, 'ÍË³öÈí¼ş¹¤¾ßÏä', 'È·¶¨ÒªÍË³öÈí¼ş¹¤¾ßÏäÂğ£¿', 10)
+			Local $ExitBox = MsgBox(32 + 1 + 256 + 262144, 'é€€å‡ºè½¯ä»¶å·¥å…·ç®±', 'ç¡®å®šè¦é€€å‡ºè½¯ä»¶å·¥å…·ç®±å—ï¼Ÿ', 10)
 			If $ExitBox = 1 Then _exit($ahIcons, $Form)
 		Case $LeftBTN[0]
 			For $i = 12 To 3 Step -1
@@ -280,18 +272,18 @@ While 1
 			Run($curl & ' "https://share.weiyun.com/ChLzhLwn" >' & $3html, '', @SW_HIDE)
 			Local $bbh_web = StringSplit(FileReadLine($3html, 378), '#')
 			If $bbh_web[2] <> $ver1 & $ver2 Then
-				If MsgBox(0, '¸üĞÂÌáÊ¾', '¼ì²âµ½ĞÂ°æ±¾£¬°æ±¾ºÅÎª£ºv' & $bbh_web[2] & '£¬µã»÷È·¶¨ºó¿ªÊ¼ÏÂÔØ£¬Á´½ÓÒ²»á¸´ÖÆµ½¼ôÇĞ°å¡£') = 1 Then
+				If MsgBox(0, 'æ›´æ–°æç¤º', 'æ£€æµ‹åˆ°æ–°ç‰ˆæœ¬ï¼Œç‰ˆæœ¬å·ä¸ºï¼šv' & $bbh_web[2] & 'ï¼Œç‚¹å‡»ç¡®å®šåå¼€å§‹ä¸‹è½½ï¼Œé“¾æ¥ä¹Ÿä¼šå¤åˆ¶åˆ°å‰ªåˆ‡æ¿ã€‚') = 1 Then
 					ClipPut("https://riceflyme.sharepoint.com/:u:/g/EdwkLVXESE1AuGmY_EREo1MB0b1bAIZgByIZ_4wdO211jw?e=Dh5w8j&download=1")
-					InetGet('https://riceflyme.sharepoint.com/:u:/g/EdwkLVXESE1AuGmY_EREo1MB0b1bAIZgByIZ_4wdO211jw?e=Dh5w8j&download=1',@ScriptDir&'\µ¾»¨Ïã¹¤¾ßÏä_v'&$ver1&$ver2&'.exe')
-					Run(@ScriptDir&'\µ¾»¨Ïã¹¤¾ßÏä_v'&$ver1&$ver2&'.exe')
+					InetGet('https://riceflyme.sharepoint.com/:u:/g/EdwkLVXESE1AuGmY_EREo1MB0b1bAIZgByIZ_4wdO211jw?e=Dh5w8j&download=1',@ScriptDir&'\ç¨»èŠ±é¦™å·¥å…·ç®±_v'&$ver1&$ver2&'.exe')
+					Run(@ScriptDir&'\ç¨»èŠ±é¦™å·¥å…·ç®±_v'&$ver1&$ver2&'.exe')
 					Exit
 				EndIf
 			Else
-				MsgBox(0, 'ÌáÊ¾', 'ÄãÏÖÔÚÊ¹ÓÃµÄÊÇ×îĞÂ°æ¡£')
+				MsgBox(0, 'æç¤º', 'ä½ ç°åœ¨ä½¿ç”¨çš„æ˜¯æœ€æ–°ç‰ˆã€‚')
 			EndIf
 	EndSwitch
 WEnd
 
 Func _time()
-	_GUICtrlStatusBar_SetText($hStatus, 'ÏµÍ³Ê±¼ä:' & _Now() & ' ' & _DateDayOfWeek(@WDAY, 3), 4)
+	_GUICtrlStatusBar_SetText($hStatus, 'ç³»ç»Ÿæ—¶é—´:' & _Now() & ' ' & _DateDayOfWeek(@WDAY, 3), 4)
 EndFunc   ;==>_time
