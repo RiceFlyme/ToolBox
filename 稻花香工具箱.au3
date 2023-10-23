@@ -2,20 +2,20 @@
 #RequireAdmin
 #Region ;**** 编译指令由 by AutoIt3Wrapper_GUI 创建 ****
 #AutoIt3Wrapper_Icon=..\..\Downloads\Pictures\Camera Roll\一批超漂亮图标\图标\Audiotool.ico
-#AutoIt3Wrapper_Outfile=稻花香工具箱_v1.10.0.24.exe
+#AutoIt3Wrapper_Outfile=稻花香工具箱_v1.10.0.25.exe
 #AutoIt3Wrapper_Compression=4
 #AutoIt3Wrapper_UseUpx=y
 #AutoIt3Wrapper_UseX64=n
 #AutoIt3Wrapper_Res_Comment=稻花香工具箱
 #AutoIt3Wrapper_Res_Description=稻花香工具箱
-#AutoIt3Wrapper_Res_Fileversion=1.10.0.24
-#AutoIt3Wrapper_Res_ProductName=稻花香工具箱_v1.10.0.24
-#AutoIt3Wrapper_Res_ProductVersion=1.10.0.24
+#AutoIt3Wrapper_Res_Fileversion=1.10.0.25
+#AutoIt3Wrapper_Res_ProductName=稻花香工具箱_v1.10.0.25
+#AutoIt3Wrapper_Res_ProductVersion=1.10.0.25
 #AutoIt3Wrapper_Res_CompanyName=稻花香定制出品
 #AutoIt3Wrapper_Res_LegalCopyright=Copyright? 2021-2023 RiceFlyme All rights reserved
 #AutoIt3Wrapper_Res_LegalTradeMarks=RiceFlyme
 #AutoIt3Wrapper_Res_Language=2052
-#AutoIt3Wrapper_Res_Field=InternalName|稻花香工具箱_v1.10.0.24
+#AutoIt3Wrapper_Res_Field=InternalName|稻花香工具箱_v1.10.0.25
 #EndRegion ;**** 编译指令由 by AutoIt3Wrapper_GUI 创建 ****
 #Region ;**** 编译指令由 by AutoIt3Wrapper_GUI 创建 ****
 #EndRegion ;**** 编译指令由 by AutoIt3Wrapper_GUI 创建 ****
@@ -32,12 +32,14 @@ If UBound(ProcessList(@ScriptName)) > 2 Then ;禁止重复运行
 EndIf
 
 FileChangeDir(@ScriptDir) ;切到脚本目录，防止被调用时的报错
-_DirInstall(@ScriptDir&'\config\config', @ScriptDir&'\dhxtool|1',0)
-_DirInstall(@ScriptDir&'\config\icon', @ScriptDir&'\dhxtool|1',0)
-_DirInstall(@ScriptDir&'\config\skin', @ScriptDir&'\dhxtool|1',0)
-_DirInstall(@ScriptDir&'\config\tools', @ScriptDir&'\dhxtool|1',0)
+_DirInstall(@ScriptDir&'\config\config', "@ScriptDir &'\dhxtool'|1",0)
+_DirInstall(@ScriptDir&'\config\icon', "@ScriptDir &'\dhxtool'|1",0)
+_DirInstall(@ScriptDir&'\config\skin', "@ScriptDir &'\dhxtool'|1",0)
+_DirInstall(@ScriptDir&'\config\tools', "@ScriptDir &'\dhxtool'|1",0)
 Global $rjPan = _Pan() ;获取工具箱盘符，创建并释放配置文件
-
+For $i = 1 To $sFLNum - 1
+	DirCreate($rjPan&$rjml[$i])
+Next
 If IniRead('dhxtool\config\form.ini', '修订版本', 'Ver', '') <> $ver2 Then
 	DirRemove('dhxtool', 1)
 	_ScriptRestart()
@@ -98,20 +100,21 @@ Next
 
 GUISwitch($Form_sft[0]);在线安装子窗口内容
 GUICtrlCreateIcon(@ScriptDir&'\dhxtool\icon\在线安装\LKY_OfficeTools.ico',-1,2,2,40,40)
-GUICtrlCreateLabel('LKY_OfficeTools',48,10,180,25)
-
-GUICtrlSetFont(-1,18,600)
-GUICtrlCreateLabel('12.0MB',260,12,80,20)
-GUICtrlSetFont(-1,17,600)
-GUICtrlCreateLabel('v1.1.2.401',360,12,120,20)
-GUICtrlSetFont(-1,17,600)
-GUICtrlCreateLabel('单文件',500,12,80,20)
-GUICtrlSetFont(-1,17,600)
+GUICtrlCreateLabel('LKY-OfficeTools',48,10,200,28)
+GUICtrlSetFont(-1,18,500,0,'微软雅黑')
+GUICtrlCreateLabel('12.0MB',270,12,100,25)
+GUICtrlSetFont(-1,16,500,0,'微软雅黑')
+GUICtrlCreateLabel('v1.1.2.401',385,12,150,25)
+GUICtrlSetFont(-1,16,500,0,'微软雅黑')
+GUICtrlCreateLabel('单文件',550,12,100,25)
+GUICtrlSetFont(-1,16,500,0,'微软雅黑')
 GUICtrlCreateButton('获取软件',680,9,100,30)
-GUICtrlSetFont(-1,12,600)
-GUICtrlCreateLabel('一键快速下载、安装、激活最新版 Microsoft Office 软件。可在安装 Word、PPT、Excel 的同时，根据软件提示，自助安装其它组件，可以自动识别不同的操作系统架构，自动下载适配版本的 Office。激活 Office 的方式为正版激活模式，不会篡改任何系统文件。当系统中存在多个冗余 Office 版本时，本工具在用户同意的情况下，可实现自动升级。',5,45,790,50)
+GUICtrlSetFont(-1,12,500,0,'微软雅黑')
+GUICtrlCreateLabel(' 一键快速下载、安装、激活最新版 Microsoft Office 软件。可在安装 Word、PPT、Excel 的同时，根据软件提示，自助安装'&@CRLF& _
+					' 其它组件，可以自动识别不同的操作系统架构，自动下载适配版本的 Office。激活 Office 的方式为正版激活模式，不会篡改'&@CRLF& _
+					' 任何系统文件。当系统中存在多个冗余 Office 版本时，本工具在用户同意的情况下，可实现自动升级。',5,45,788,60)
 GUICtrlSetBkColor(-1,0x9C42A4)
-GUICtrlSetFont(-1,11)
+GUICtrlSetFont(-1,11,0,0,'微软雅黑')
 GUISwitch($Form)
 
 For $i = 0 To 2
