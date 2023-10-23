@@ -1,8 +1,3 @@
-#Region ;**** Directives created by AutoIt3Wrapper_GUI ****
-#AutoIt3Wrapper_Icon=..\..\Downloads\Pictures\Camera Roll\一批超漂亮图标\图标\Audiotool.ico
-#AutoIt3Wrapper_Compression=4
-#AutoIt3Wrapper_UseX64=n
-#EndRegion ;**** Directives created by AutoIt3Wrapper_GUI ****
 Global Const $AW_HOR_POSITIVE = 0x00000001
 Global Const $AW_HOR_NEGATIVE = 0x00000002
 Global Const $AW_VER_POSITIVE = 0x00000004
@@ -13,7 +8,7 @@ Global Const $AW_ACTIVATE = 0x00020000
 Global Const $AW_SLIDE = 0x00040000
 Global Const $AW_BLEND = 0x00080000
 Global $ToolTitle = '软件工具箱 By 稻花香', $dllfile[5]
-Global $ver1 = '1.10.0.', $ver2 = 24, $ver3 = '2023.10.23' ;版本信息
+Global $ver1 = '1.10.0.', $ver2 = 25, $ver3 = '2023.10.23' ;版本信息
 Global $curl = @ComSpec & ' /c ' & @ScriptDir & '\dhxtool\tools\curl\curl.exe'
 Global $aria2 = @ScriptDir & '\dhxtool\tools\aria2c.exe'
 Global $1html = @ScriptDir & '\dhxtool\tools\curl\1.html'
@@ -24,7 +19,7 @@ Global $LeftICOName[15] = ['', 'ruanjian', 'zhedie', 'QQ', 'VX', 'Edge', 'Explor
 Global $LeftICOBKCLR[15] = ['', '0x502050', '0x501F56', '0x6E4A72', '0x6C4A71', '0x6A4A70', '0x674A73', '0x644A70', '0x5E4C6F', '0x5A4D71', '0x534E71', '0x4E4E72', '0x4B4F6F', '0x1C2858', '0x1A2A4E']
 Global $OSfx = RegRead('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'DisplayVersion')
 Global $OShz = RegRead('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion', 'UBR')
-Global $LBNAry = IniReadSection(@ScriptDir & '\config\config\form.ini', '软件分类')
+Global $LBNAry = IniReadSection(@ScriptDir & '\dhxtool\config\form.ini', '软件分类')
 Global $sFLNum = UBound($LBNAry, 1)
 Global $sfenlei[$sFLNum], $rjml[$sFLNum]
 For $i = 1 To $sFLNum - 1
@@ -328,7 +323,7 @@ Func CreatMultiBTN($Text, $left, $top, $kuan, $gao, $hangju, $lieju, $hangnum, $
 	Return $Button
 EndFunc   ;==>CreatMultiBTN
 ;==================================================================================================
-Func _Pan($Dir = "\ToolBox\Software\Adobeall-\", $LimitFree = 8)
+Func _Pan($Dir = "\ToolBox\Software\Adobeall\", $LimitFree = 8)
 	Local $pan[1]
 	For $i = 65 To 90
 		If FileExists(Chr($i) & ':' & $Dir) Then
@@ -377,8 +372,13 @@ Func _Pan($Dir = "\ToolBox\Software\Adobeall-\", $LimitFree = 8)
 						$pan = GUICtrlRead($panIpt)
 						$pan = StringLeft($pan, 2)
 						GUIDelete($Form_pan)
+						If FileExists($pan & "\ToolBox\Software\youhua\") Then
+							If MsgBox(4 + 16, '警告', $pan & '盘存在旧版本的软件目录，是否删除它们？') = 6 Then
+								DirRemove($pan & "\ToolBox\Software\")
+								DirCreate($pan & "\ToolBox\Software\")
+							EndIf
+						EndIf
 						Return $pan
-						MsgBox(0, 0, $pan)
 						ExitLoop
 					EndIf
 					If GUIGetMsg() = -3 Then
@@ -419,6 +419,12 @@ Func _Pan($Dir = "\ToolBox\Software\Adobeall-\", $LimitFree = 8)
 				$pan = GUICtrlRead($panIpt)
 				$pan = StringLeft($pan, 2)
 				GUIDelete($Form_pan)
+				If FileExists($pan & "\ToolBox\Software\youhua\") Then
+					If MsgBox(4 + 16, '警告', $pan & '盘存在旧版本的软件目录，是否删除它们？') = 6 Then
+						DirRemove($pan & "\ToolBox\Software\")
+						DirCreate($pan & "\ToolBox\Software\")
+					EndIf
+				EndIf
 				Return $pan
 				ExitLoop
 			EndIf
@@ -428,6 +434,12 @@ Func _Pan($Dir = "\ToolBox\Software\Adobeall-\", $LimitFree = 8)
 			EndIf
 		WEnd
 	Else
+		If FileExists($pan & "\ToolBox\Software\youhua\") Then
+			If MsgBox(4 + 16, '警告', $pan & '盘存在旧版本的软件目录，是否删除它们？') = 6 Then
+				DirRemove($pan & "\ToolBox\Software\")
+				DirCreate($pan & "\ToolBox\Software\")
+			EndIf
+		EndIf
 		Return $pan[1]
 	EndIf
 EndFunc   ;==>_Pan
